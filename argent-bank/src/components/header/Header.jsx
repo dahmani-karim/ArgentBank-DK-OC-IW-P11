@@ -1,6 +1,6 @@
 // Header component
 
-import Logo from "../../assets/img/argentBankLogo.png"
+import Logo from "../../assets/logo/argentBankLogo.png"
 
 const Header = () => {
     return (

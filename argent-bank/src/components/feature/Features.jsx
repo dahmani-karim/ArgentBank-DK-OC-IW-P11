@@ -1,8 +1,8 @@
 // Component for the features section
 
-import Chat from "../../assets/img/icon-chat.png";
-import Money from "../../assets/img/icon-money.png";
-import Security from "../../assets/img/icon-security.png";
+import Chat from "../../assets/icons/icon-chat.png";
+import Money from "../../assets/icons/icon-money.png";
+import Security from "../../assets/icons/icon-security.png";
 
 const Features = () => {
     return (
