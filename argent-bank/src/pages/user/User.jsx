@@ -1,4 +1,4 @@
-// Code: src/pages/user/User.jsx
+// User page component
 
 const User = () => {
     return (

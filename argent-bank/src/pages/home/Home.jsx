@@ -1,10 +1,14 @@
-// Code: Home page component
+// Home page component
+
+import Hero from '../../components/hero/Hero';
+import Features from '../../components/feature/Features';
 
 const Home = () => {
     return (
-        <div>
-            HOME PAGE
-        </div>
+        <main>
+            <Hero />
+            <Features />
+        </main>
     );
 };
 
