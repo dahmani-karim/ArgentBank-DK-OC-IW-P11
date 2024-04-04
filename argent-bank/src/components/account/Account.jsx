@@ -24,8 +24,8 @@ const account = ({title,amount,description}) => {
 };
 
 account.propTypes = {
-  amount: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  amount: PropTypes.string.isRequired,
   description:PropTypes.string.isRequired,
 };
 

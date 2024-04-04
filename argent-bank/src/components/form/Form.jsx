@@ -17,15 +17,15 @@ const Form = () => {
         <form>
             <div className="input-wrapper">
                 <label htmlFor="username">Username</label>
-                <input type="text" id="username" />
+                <input type="text" id="username" placeholder="example@example.fr"/>
             </div>
             <div className="input-wrapper">
                 <label htmlFor="password">Password</label>
-                <input type="password" id="password" />
+                <input type="password" id="password" placeholder="Enter Password"/>
             </div>
             <div className="input-remember">
-                <input type="checkbox" id="remember-me" />
                 <label htmlFor="remember-me">Remember me</label>
+                <input type="checkbox" id="remember-me" />
             </div>
             <Button
                 className="sign-in-button"
