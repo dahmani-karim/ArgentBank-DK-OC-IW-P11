@@ -1,6 +1,8 @@
 // User page component
 
 import Button from "../../components/button/Button";
+import transactions from "../../data/transactions";
+import Account from "../../components/account/Account";
 
 const User = () => {
     return (
@@ -15,51 +17,14 @@ const User = () => {
         </Button>
       </div>
       <h2 className="sr-only">Accounts</h2>
-      <section className="account">
-        <div className="account-content-wrapper">
-          <h3 className="account-title">Argent Bank Checking (x8349)</h3>
-          <p className="account-amount">$2,082.79</p>
-          <p className="account-amount-description">Available Balance</p>
-        </div>
-        <div className="account-content-wrapper cta">
-        <Button
-          className="transaction-button"
-          type="button"
-          btnText="View transactions"
-        >
-        </Button>
-        </div>
-      </section>
-      <section className="account">
-        <div className="account-content-wrapper">
-          <h3 className="account-title">Argent Bank Savings (x6712)</h3>
-          <p className="account-amount">$10,928.42</p>
-          <p className="account-amount-description">Available Balance</p>
-        </div>
-        <div className="account-content-wrapper cta">
-        <Button
-          className="transaction-button"
-          type="button"
-          btnText="View transactions"
-        >
-        </Button>
-        </div>
-      </section>
-      <section className="account">
-        <div className="account-content-wrapper">
-          <h3 className="account-title">Argent Bank Credit Card (x8349)</h3>
-          <p className="account-amount">$184.30</p>
-          <p className="account-amount-description">Current Balance</p>
-        </div>
-        <div className="account-content-wrapper cta">
-        <Button
-          className="transaction-button"
-          type="button"
-          btnText="View transactions"
-        >
-        </Button>
-        </div>
-      </section>
+      {transactions.map((transaction, index) => (
+        <Account
+        key={"transaction"+index}
+        amount={transaction.amount}
+        title={transaction.title}
+        description={transaction.description}
+        />
+      ))}
     </main>
     );
 };
