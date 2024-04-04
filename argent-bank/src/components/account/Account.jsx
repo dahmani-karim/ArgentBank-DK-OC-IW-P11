@@ -1,4 +1,4 @@
-// Component for the features section
+// Account component to display transactions details
 
 import { PropTypes } from "prop-types";
 import Button from "../button/Button";
