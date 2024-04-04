@@ -1,11 +1,18 @@
 // User page component
 
+import Button from "../../components/button/Button";
+
 const User = () => {
     return (
     <main className="main bg-dark">
       <div className="header">
         <h1>Welcome back<br />Tony Jarvis!</h1>
-        <button className="edit-button" type="button">Edit Name</button>
+        <Button
+          className="edit-button"
+          type="button"
+          btnText="Edit Name"
+        >
+        </Button>
       </div>
       <h2 className="sr-only">Accounts</h2>
       <section className="account">
@@ -15,7 +22,12 @@ const User = () => {
           <p className="account-amount-description">Available Balance</p>
         </div>
         <div className="account-content-wrapper cta">
-          <button className="transaction-button">View transactions</button>
+        <Button
+          className="transaction-button"
+          type="button"
+          btnText="View transactions"
+        >
+        </Button>
         </div>
       </section>
       <section className="account">
@@ -25,7 +37,12 @@ const User = () => {
           <p className="account-amount-description">Available Balance</p>
         </div>
         <div className="account-content-wrapper cta">
-          <button className="transaction-button">View transactions</button>
+        <Button
+          className="transaction-button"
+          type="button"
+          btnText="View transactions"
+        >
+        </Button>
         </div>
       </section>
       <section className="account">
@@ -35,7 +52,12 @@ const User = () => {
           <p className="account-amount-description">Current Balance</p>
         </div>
         <div className="account-content-wrapper cta">
-          <button className="transaction-button">View transactions</button>
+        <Button
+          className="transaction-button"
+          type="button"
+          btnText="View transactions"
+        >
+        </Button>
         </div>
       </section>
     </main>
