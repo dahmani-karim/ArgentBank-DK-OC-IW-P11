@@ -2,7 +2,7 @@
 
 import Hero from '../../components/hero/Hero';
 import Feature from '../../components/feature/Feature';
-import features from '../../data/features';
+import features from '../../datas/features';
 
 const Home = () => {
 

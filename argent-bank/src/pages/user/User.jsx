@@ -1,7 +1,7 @@
 // User page component
 
 import Button from "../../components/button/Button";
-import transactions from "../../data/transactions";
+import transactions from "../../datas/transactions";
 import Account from "../../components/account/Account";
 
 const User = () => {
