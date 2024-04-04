@@ -1,4 +1,4 @@
-// Script pour la gestion de l'authentification
+// Script pour les différents fetch API
 
 // Récupérer le token de connexion
 export async function logUser(email, password) {
