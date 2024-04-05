@@ -9,7 +9,11 @@ export async function logUser(email, password) {
       },
       body: JSON.stringify({ email, password }),
     });
-    return response.json();
+    const userToken = (await response.json()).body.token;
+    sessionStorage.setItem("token", userToken);
+    window.location.href = "/user";
+    return userToken;
+    //return response.json();
 }
   
 // Récupérer le Profil Utilisateur

@@ -2,7 +2,6 @@
 
 import { logUser } from "../../script/api.jsx"
 import Button from "../button/Button.jsx"
-//import { getUser } from "../../actions/user.action.js"
 
 const Form = () => {
 
@@ -11,9 +10,7 @@ const Form = () => {
         event.preventDefault();
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
-        console.log(username, password);
         logUser(username, password);
-        //getUser(username, password);
     };
 
     return (
