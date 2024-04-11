@@ -16,7 +16,7 @@ const Form = () => {
         const userEmail = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
-        //Appel de la fonction logUser
+        //Appel de la fonction logUser et récupération du token
         const userToken = await logUser(userEmail, password);
         // Envoi du token au store
         dispatch(login(userToken))
