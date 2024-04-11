@@ -13,7 +13,7 @@ export async function logUser(email, password) {
 }
   
 // Récupérer le Profil Utilisateur
-export async function getUserProfil(token) {
+export async function fetchUserProfil(token) {
     const response = await fetch("http://localhost:3001/api/v1/user/profile", {
       method: "POST",
       headers: {

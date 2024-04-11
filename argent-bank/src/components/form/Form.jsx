@@ -1,16 +1,14 @@
 // Form component
-import { getUserProfil, logUser } from "../../script/api.jsx"
+import { fetchUserProfil, logUser } from "../../script/api.jsx"
 import Button from "../button/Button.jsx"
 import { useDispatch } from "react-redux";
-import { login, profil } from "../../redux/userSlice";
-import { useNavigate } from "react-router-dom";
+import { getUserToken, getUserInfo } from "../../redux/userSlice";
 
 const Form = () => {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     // Fonction de gestion de l’envoi du formulaire de connexion
-    const handleSignIn = async (event) => {
+    const handleLoginSubmit = async (event) => {
         event.preventDefault();
         //Récupération des valeurs des inputs
         const userEmail = document.getElementById('username').value;
@@ -18,11 +16,12 @@ const Form = () => {
 
         //Appel de la fonction logUser et récupération du token
         const userToken = await logUser(userEmail, password);
+        localStorage.setItem('token', userToken);
         // Envoi du token au store
-        dispatch(login(userToken))
+        dispatch(getUserToken(userToken))
 
-        //Appel de la fonction getUserProfil
-        const userProfil = await getUserProfil(userToken);
+        //Appel de la fonction fetchUserProfil
+        const userProfil = await fetchUserProfil(userToken);
         // Création d’un objet contenant les informations de l’utilisateur
         const userInfos = {
             email: userProfil.email,
@@ -31,9 +30,9 @@ const Form = () => {
             userName: userProfil.userName
         };
         // Envoi des informations de l’utilisateur au store
-        dispatch(profil(userInfos));
+        dispatch(getUserInfo(userInfos));
 
-        navigate('/user');
+        window.location.href = "/user";
     };
 
     return (
@@ -53,7 +52,7 @@ const Form = () => {
             <Button
                 className="sign-in-button"
                 type="submit"
-                onClick={handleSignIn}
+                onClick={handleLoginSubmit}
                 btnText="Sign In"
             >
             </Button>

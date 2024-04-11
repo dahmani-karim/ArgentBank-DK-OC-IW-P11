@@ -17,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* Redux : passer le store en props du Provider */}
     <Provider store={store}>
+      {/* Redux : passer le persistor en props du PersistGate */}
       <PersistGate loading={null} persistor={persistor}>
         <Router baseline={"/"}>
           <Header />

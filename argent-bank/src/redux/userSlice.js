@@ -9,18 +9,25 @@ export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    login: (state, action) => {
+    // Store user token
+    getUserToken: (state, action) => {
       state.userToken = action.payload
     },
-    profil: (state, action) => {
+    // Store user information
+    getUserInfo: (state, action) => {
       state.userProfil = action.payload
     },
-    logout: (state) => {
-      state.userToken = null
+    // Clean the store
+    cleanStore: (state, action) => {
+      state.userToken = action.payload,
+      state.userProfil.email = action.payload
+      state.userProfil.firstName = action.payload
+      state.userProfil.lastName = action.payload
+      state.userProfil.userName = action.payload
     },
   },
 })
 
-export const { login, logout, profil } = userSlice.actions
+export const { getUserToken, getUserInfo, cleanStore } = userSlice.actions
 
 export default userSlice.reducer

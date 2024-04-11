@@ -4,13 +4,15 @@ import Button from "../../components/button/Button";
 import transactions from "../../datas/transactions";
 import Account from "../../components/account/Account";
 import { useSelector } from "react-redux";
+import EditMenu from "../../components/editMenu/EditMenu";
 
 const User = () => {
   const pseudo = useSelector(state => state.userSlice.userProfil.userName);
     return (
     <main className="main bg-dark">
       <div className="header">
-        <h1>Welcome back<br />{pseudo}!</h1>
+        <h1>Welcome back<br />{pseudo} !</h1>
+        <EditMenu />
         <Button
           className="edit-button"
           type="button"
