@@ -3,12 +3,14 @@
 import Button from "../../components/button/Button";
 import transactions from "../../datas/transactions";
 import Account from "../../components/account/Account";
+import { useSelector } from "react-redux";
 
 const User = () => {
+  const pseudo = useSelector(state => state.userSlice.userProfil.userName);
     return (
     <main className="main bg-dark">
       <div className="header">
-        <h1>Welcome back<br />Tony Jarvis!</h1>
+        <h1>Welcome back<br />{pseudo}!</h1>
         <Button
           className="edit-button"
           type="button"

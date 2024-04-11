@@ -1,5 +1,4 @@
 // Script pour les différents fetch API
-
 // Récupérer le token de connexion
 export async function logUser(email, password) {
     const response = await fetch("http://localhost:3001/api/v1/user/login", {
@@ -10,21 +9,19 @@ export async function logUser(email, password) {
       body: JSON.stringify({ email, password }),
     });
     const userToken = (await response.json()).body.token;
-    sessionStorage.setItem("token", userToken);
-    window.location.href = "/user";
     return userToken;
-    //return response.json();
 }
   
 // Récupérer le Profil Utilisateur
-export async function getUserProfile(token) {
+export async function getUserProfil(token) {
     const response = await fetch("http://localhost:3001/api/v1/user/profile", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${token}`,
       },
     });
-    return response.json();
+    const userProfile = (await response.json()).body;
+    return userProfile;
 }
   
 // Modifier le pseudo utilisateur
