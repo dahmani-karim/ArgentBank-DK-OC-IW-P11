@@ -14,6 +14,7 @@ const User = () => {
   }
 
   const pseudo = useSelector(state => state.userSlice.userProfil.userName);
+  const userID = useSelector(state => state.userSlice.userProfil.id);
     return (
     <main className="main bg-dark">
       <div className="header">
@@ -28,7 +29,7 @@ const User = () => {
         </Button>
       </div>
       <h2 className="sr-only">Accounts</h2>
-      {transactions.map((transaction, index) => (
+      {transactions[userID].map((transaction, index) => (
         <Account
         key={"transaction"+index}
         amount={transaction.amount}

@@ -24,6 +24,7 @@ const Form = () => {
         const userProfil = await fetchUserProfil(userToken);
         // Création d’un objet contenant les informations de l’utilisateur
         const userInfos = {
+            id : userProfil.id,
             email: userProfil.email,
             firstName: userProfil.firstName,
             lastName: userProfil.lastName,
@@ -39,11 +40,11 @@ const Form = () => {
         <form>
             <div className="input-wrapper">
                 <label htmlFor="username">Username</label>
-                <input type="text" id="username" placeholder="example@example.fr"/>
+                <input type="text" id="username" placeholder="example@example.fr" autoComplete="off"/>
             </div>
             <div className="input-wrapper">
                 <label htmlFor="password">Password</label>
-                <input type="password" id="password" placeholder="Enter Password"/>
+                <input type="password" id="password" placeholder="Enter Password" autoComplete="off"/>
             </div>
             <div className="input-remember">
                 <label htmlFor="remember-me">Remember me</label>

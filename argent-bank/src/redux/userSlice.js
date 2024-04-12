@@ -20,6 +20,7 @@ export const userSlice = createSlice({
     // Clean the store
     cleanStore: (state, action) => {
       state.userToken = action.payload,
+      state.userProfil.id = action.payload
       state.userProfil.email = action.payload
       state.userProfil.firstName = action.payload
       state.userProfil.lastName = action.payload

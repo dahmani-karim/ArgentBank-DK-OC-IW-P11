@@ -7,6 +7,7 @@ import { getUserInfo } from "../../redux/userSlice";
 
 const EditMenu = () => {
     const token = useSelector(state => state.userSlice.userToken);
+    const id = useSelector(state => state.userSlice.userProfil.id);
     const pseudo = useSelector(state => state.userSlice.userProfil.userName);
     const firstName = useSelector(state => state.userSlice.userProfil.firstName);
     const lastName = useSelector(state => state.userSlice.userProfil.lastName);
@@ -23,10 +24,11 @@ const EditMenu = () => {
         const newUserName = document.getElementById('username').value;
 
         //Appel de la fonction changeUserName
-        changeUsername(token, newUserName);
+        changeUsername(newUserName, token);
         
         // Mise à jour du userName dans le store
         const userInfos = {
+            id: id,
             email: email,
             firstName: firstName,
             lastName: lastName,
@@ -35,7 +37,7 @@ const EditMenu = () => {
         dispatch(getUserInfo(userInfos));
 
         // Redirection vers la page user
-        window.location.href = "/user";
+        //window.location.href = "/user";
     }
 
     return (
@@ -44,7 +46,7 @@ const EditMenu = () => {
             <form className="edit-menu">
                 <div className="input-wrapper">
                     <label htmlFor="username">User name:</label>
-                    <input type="text" id="username" placeholder={pseudo}/>
+                    <input type="text" id="username" placeholder={pseudo} autoComplete="off"/>
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="firstname">First name:</label>
