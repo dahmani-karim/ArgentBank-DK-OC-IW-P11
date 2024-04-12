@@ -1,4 +1,13 @@
 .header {
     color: #fff;
     margin-bottom: 2rem;
+    .edit-component {
+        display: none;
+    }
+    .edit-component.active {
+        display: block;
+    }
+    .menu.active {
+        display: none;
+    }
 }

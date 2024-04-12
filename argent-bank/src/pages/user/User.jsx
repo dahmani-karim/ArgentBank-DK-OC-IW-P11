@@ -7,6 +7,12 @@ import { useSelector } from "react-redux";
 import EditMenu from "../../components/editMenu/EditMenu";
 
 const User = () => {
+
+  const handleEditName = () => {
+    document.querySelector(".edit-component").classList.toggle("active");
+    document.querySelector(".menu").classList.toggle("active");
+  }
+
   const pseudo = useSelector(state => state.userSlice.userProfil.userName);
     return (
     <main className="main bg-dark">
@@ -14,9 +20,10 @@ const User = () => {
         <h1>Welcome back<br />{pseudo} !</h1>
         <EditMenu />
         <Button
-          className="edit-button"
+          className="edit-button menu"
           type="button"
           btnText="Edit Name"
+          onClick={handleEditName}
         >
         </Button>
       </div>
