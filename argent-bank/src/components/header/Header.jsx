@@ -1,6 +1,6 @@
 // Header component
 
-import Logo from "../../assets/logo/argentBankLogo.png"
+import Logo from "../../assets/logo/argentBankLogo.webp";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { cleanStore } from "../../redux/userSlice";
