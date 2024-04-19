@@ -104,6 +104,11 @@ paths:
       summary: User transactions API
       description: API for updating a transaction details
       parameters:
+        - in: path
+          name : accountId
+          description: id of the account
+          required: true
+          type: string
         - in: body
           name: body
           description: Update user transaction attributes
