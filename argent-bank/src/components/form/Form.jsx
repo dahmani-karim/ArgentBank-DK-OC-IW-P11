@@ -3,9 +3,11 @@ import { fetchUserProfil, logUser } from "../../script/api.jsx"
 import Button from "../button/Button.jsx"
 import { useDispatch } from "react-redux";
 import { getUserToken, getUserInfo } from "../../redux/userSlice";
+import { useState } from "react";
 
 const Form = () => {
     const dispatch = useDispatch();
+    const [errorMessage, setErrorMessage] = useState("");
 
     // Fonction de gestion de l’envoi du formulaire de connexion
     const handleLoginSubmit = async (event) => {
@@ -15,25 +17,29 @@ const Form = () => {
         const password = document.getElementById('password').value;
 
         //Appel de la fonction logUser et récupération du token
-        const userToken = await logUser(userEmail, password);
-        localStorage.setItem('token', userToken);
-        // Envoi du token au store
-        dispatch(getUserToken(userToken))
-
-        //Appel de la fonction fetchUserProfil
-        const userProfil = await fetchUserProfil(userToken);
-        // Création d’un objet contenant les informations de l’utilisateur
-        const userInfos = {
-            id : userProfil.id,
-            email: userProfil.email,
-            firstName: userProfil.firstName,
-            lastName: userProfil.lastName,
-            userName: userProfil.userName
-        };
-        // Envoi des informations de l’utilisateur au store
-        dispatch(getUserInfo(userInfos));
-
-        window.location.href = "/user";
+        try {
+            const userToken = await logUser(userEmail, password);
+            localStorage.setItem('token', userToken);
+            // Envoi du token au store
+            dispatch(getUserToken(userToken))
+    
+            //Appel de la fonction fetchUserProfil
+            const userProfil = await fetchUserProfil(userToken);
+            // Création d’un objet contenant les informations de l’utilisateur
+            const userInfos = {
+                id : userProfil.id,
+                email: userProfil.email,
+                firstName: userProfil.firstName,
+                lastName: userProfil.lastName,
+                userName: userProfil.userName
+            };
+            // Envoi des informations de l’utilisateur au store
+            dispatch(getUserInfo(userInfos));
+    
+            window.location.href = "/user";
+        } catch (error) {
+            setErrorMessage("Login failed. Please check your username and password.");
+        }
     };
 
     return (
@@ -57,6 +63,7 @@ const Form = () => {
                 btnText="Sign In"
             >
             </Button>
+            {errorMessage && <p className="loginErrorMessage">{errorMessage}</p>}
         </form>
     );
 };

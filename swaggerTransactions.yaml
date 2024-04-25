@@ -10,7 +10,7 @@ schemes:
   - http
 paths:
   /accounts/{accountId}/transactions:
-    post:
+    get:
       security:
         - Bearer: []
       tags:
@@ -23,12 +23,6 @@ paths:
           description: id of the account
           required: true
           type: string
-        - in: body
-          name: body
-          description: Account Payload
-          required: true
-          schema:
-            type: string
       #produces:
        # - application/json
       responses:
@@ -54,8 +48,8 @@ paths:
             $ref: '#/definitions/TransactionResponse'
         '500':
           description: Internal Server Error
-  /accounts/{accountId}/transaction:
-    post:
+  /accounts/{accountId}/{transactionId}:
+    get:
       security:
         - Bearer: []
       tags:
@@ -68,12 +62,11 @@ paths:
           description: id of the account
           required: true
           type: string
-        - in: body
-          name: body
-          description: Account Payload
+        - in: path
+          name : transactionId
+          description: id of the transaction
           required: true
-          schema:
-            type: string
+          type: string
       #produces:
        # - application/json
       responses:
@@ -107,6 +100,11 @@ paths:
         - in: path
           name : accountId
           description: id of the account
+          required: true
+          type: string
+        - in: path
+          name : transactionId
+          description: id of the transaction
           required: true
           type: string
         - in: body
@@ -143,55 +141,6 @@ securityDefinitions:
     name: Authorization
     in: header
 definitions:
-  User:
-    properties:
-      email:
-        type: string
-        description: user email
-      password:
-        type: string
-        description: user password
-      firstName:
-        type: string
-        description: user first name
-      lastName:
-        type: string
-        description: user last name
-      userName:
-        type: string
-        description: user public name
-  Login:
-    properties:
-      email:
-        type: string
-        description: user email
-      password:
-        type: string
-        description: user password
-  ApiResponse:
-    type: object
-    properties:
-      status:
-        type: integer
-      message:
-        type: string
-      body:
-        type: object
-        properties:
-          id:
-            type: string
-          email:
-            type: string
-  LoginResponse:
-    type: object
-    properties:
-      token:
-        type: string
-  UserProfile:
-    type: object
-    properties:
-      userName:
-        type: string
   TransactionResponse:
     type: object
     properties:
